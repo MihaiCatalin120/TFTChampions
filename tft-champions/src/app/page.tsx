@@ -1,10 +1,17 @@
+'use client';
+
 import SetSelector from "@/components/set-selector";
+import { useState } from "react";
+
 export default function Home() {
+  const [selectedSet, setSelectedSet] = useState(1);
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1>TFT Championesssssss bossssss</h1>
-        <SetSelector />
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start text-center">
+        <h1 className="text-4xl mx-auto w-full">TFT Championesssssss bossssss</h1>
+        <h2 className="w-full">Current selected set is: {selectedSet > 0 ? selectedSet : 'All sets'}</h2>
+        <SetSelector setSelectedSet={setSelectedSet} />
       </main>
     </div>
   );

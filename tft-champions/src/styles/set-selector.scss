@@ -1,0 +1,37 @@
+.set-selector-container {
+  //todo: use css variables
+  display: grid;
+  @media screen and (max-width: 600px) {
+    grid-template-columns: repeat(3, 80px);
+    padding-right: 40px;
+  }
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: repeat(5, 100px);
+  }
+
+  button {
+    background-color: #EFBF04;
+    aspect-ratio: cos(30deg);
+    clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
+    border: 1px solid black;
+
+    @media screen and (max-width: 600px) {
+      width: 80px;
+
+      &:nth-child(6n-2), &:nth-child(6n-1), &:nth-child(6n) {
+        margin-block: -20px;
+        margin-left: 40px;
+      }
+    }
+
+    @media screen and (min-width: 600px) {
+      width: 100px;
+
+      &:nth-child(10n-4), &:nth-child(10n-3), &:nth-child(10n-2), &:nth-child(10n-1), &:nth-child(10n) {
+        margin-block: -27px;
+        margin-left: 50px;
+      }
+    }
+  }
+}
