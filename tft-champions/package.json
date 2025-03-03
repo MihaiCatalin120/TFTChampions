@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroui/accordion": "^2.2.12",
+    "@heroui/system": "^2.4.11",
+    "@heroui/theme": "^2.4.11",
+    "framer-motion": "^12.4.9",
     "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
