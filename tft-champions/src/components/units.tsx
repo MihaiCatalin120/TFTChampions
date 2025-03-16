@@ -18,16 +18,21 @@ export default function Units() {
     fetch("/api/units")
       .then((response) => response.json())
       .then((data) => {
-        data.map((unit: any) => unit.traits = JSON.parse(unit.traits.replace(/'/g, '"')));
+        data.map((unit: any) => {
+          unit.traits = JSON.parse(unit.traits.replace(/'/g, '"'));
+          unit.set = unit.set[unit.set.length - 1] === '0' ? unit.set.slice(0, -2) : unit.set;
+        });
+
         const unitsGrouped = _.groupBy(data, 'set') as unknown as Dictionary<Unit[]>;
-        setSetArray(["All"].concat(Object.keys(unitsGrouped)));
+
+        setSetArray(["All"].concat(_.sortBy(Object.keys(unitsGrouped), parseFloat)));
         setUnits(unitsGrouped);
       });
   }, []);
 
   return (
     <div className="w-full">
-      <Accordion variant='splitted' selectionMode='multiple' isCompact={false} selectedKeys={selectedSet === 0 ? ["All"] : [`${selectedSet.toFixed(1)}`]}>
+      <Accordion variant='splitted' selectionMode='multiple' isCompact={false}>
         {setArray.map((set) => (
           (parseFloat(set) === selectedSet || selectedSet === 0) && parseFloat(set) > 0 ? (
             <AccordionItem key={set} title={`Set ${set}`}>
