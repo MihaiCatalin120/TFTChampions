@@ -9,7 +9,9 @@ export default function Home() {
       <main className="dark flex flex-col gap-8 row-start-2 items-center text-center w-full">
         <h1 className="text-4xl mx-auto w-full">TFT Champions</h1>
         <SetSelector />
-        <Units />
+        <div className="mt-4 w-full">
+          <Units />
+        </div>
       </main>
     </div>
   );

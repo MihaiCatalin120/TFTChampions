@@ -13,12 +13,16 @@
     "@heroui/system": "^2.4.11",
     "@heroui/theme": "^2.4.11",
     "framer-motion": "^12.4.9",
+    "lodash": "^4.17.21",
     "next": "15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/lodash": "^4.17.16",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

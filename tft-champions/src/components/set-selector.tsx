@@ -9,13 +9,13 @@ export default function SetSelector() {
     throw new Error("GlobalContext is null");
   }
 
-  const { selectedSet, setSelectedSet, numberOfSets } = globalContext;
+  const { selectedSet, setSelectedSet, setArray } = globalContext;
 
   return (
     <div className="set-selector-container text-black">
-      {Array.from({ length: numberOfSets }, (_, index) => (
-        <button key={index} className={selectedSet === index ? 'selected' : ''} onClick={() => setSelectedSet(index)}>
-          {index === 0 ? 'All' : `Set ${index}`}
+      {setArray.map((set) => (
+        <button key={set} className={(set === 'All' && selectedSet === 0) || selectedSet === parseFloat(set) ? 'selected' : ''} onClick={() => setSelectedSet(set === 'All' ? 0 : parseFloat(set))}>
+          {set === 'All' ? 'All' : `Set ${set}`}
         </button>
       ))}
     </div>

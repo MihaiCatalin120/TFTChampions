@@ -3,7 +3,8 @@ import { createContext, useState } from "react";
 interface GlobalContextType {
   selectedSet: number;
   setSelectedSet: (value: number) => void;
-  numberOfSets: number;
+  setArray: string[];
+  setSetArray: (value: string[]) => void;
 }
 
 const GlobalContext = createContext<GlobalContextType | null>(null);
@@ -15,9 +16,10 @@ function GlobalContextProvider({
 
 ) {
   const [selectedSet, setSelectedSet] = useState(0);
+  const [setArray, setSetArray] = useState<string[]>([]);
 
   return (
-    <GlobalContext.Provider value={{ selectedSet, setSelectedSet, numberOfSets: 13 }}>
+    <GlobalContext.Provider value={{ selectedSet, setSelectedSet, setArray, setSetArray }}>
       {children}
     </GlobalContext.Provider>
   );

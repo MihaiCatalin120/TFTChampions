@@ -13,6 +13,8 @@ def find_first_number(numbers):
         return None
 
 print("Starting data processing...\n")
+dfAll=[]
+
 for setIndex in np.arange(1, 13, 0.5):
     if setIndex % 1 == 0:
         setIndex = int(setIndex)
@@ -40,4 +42,9 @@ for setIndex in np.arange(1, 13, 0.5):
     df.drop(columns=columns_to_merge, inplace=True)
 
     df.to_csv(f'processed/set{setIndex}.csv', index=False)
+    dfAll.append(df)
     print(df)
+
+dfAll = pd.concat(dfAll, ignore_index=True)
+dfAll.to_csv('processed/sets.csv', index=False)
+print(dfAll)
