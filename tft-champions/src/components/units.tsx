@@ -21,15 +21,13 @@ export default function Units() {
         data.map((unit: any) => unit.traits = JSON.parse(unit.traits.replace(/'/g, '"')));
         const unitsGrouped = _.groupBy(data, 'set') as unknown as Dictionary<Unit[]>;
         setSetArray(["All"].concat(Object.keys(unitsGrouped)));
-        console.log(Object.keys(unitsGrouped));
-        console.log(unitsGrouped);
         setUnits(unitsGrouped);
       });
   }, []);
 
   return (
     <div className="w-full">
-      <Accordion variant='splitted' selectionMode='multiple' isCompact={false}>
+      <Accordion variant='splitted' selectionMode='multiple' isCompact={false} selectedKeys={selectedSet === 0 ? ["All"] : [`${selectedSet.toFixed(1)}`]}>
         {setArray.map((set) => (
           (parseFloat(set) === selectedSet || selectedSet === 0) && parseFloat(set) > 0 ? (
             <AccordionItem key={set} title={`Set ${set}`}>
