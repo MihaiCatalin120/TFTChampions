@@ -12,6 +12,7 @@
     "@heroui/accordion": "^2.2.12",
     "@heroui/system": "^2.4.11",
     "@heroui/theme": "^2.4.11",
+    "@remixicon/react": "^4.6.0",
     "framer-motion": "^12.4.9",
     "lodash": "^4.17.21",
     "next": "15.1.7",

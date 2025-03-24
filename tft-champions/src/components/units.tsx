@@ -23,6 +23,7 @@ export default function Units() {
           unit.set = unit.set[unit.set.length - 1] === '0' ? unit.set.slice(0, -2) : unit.set;
         });
 
+        // TODO: fix type
         const unitsGrouped = _.groupBy(data, 'set') as unknown as Dictionary<Unit[]>;
 
         setSetArray(["All"].concat(_.sortBy(Object.keys(unitsGrouped), parseFloat)));
@@ -35,7 +36,7 @@ export default function Units() {
       <Accordion variant='splitted' selectionMode='multiple' isCompact={false}>
         {setArray.map((set) => (
           (parseFloat(set) === selectedSet || selectedSet === 0) && parseFloat(set) > 0 ? (
-            <AccordionItem key={set} title={`Set ${set}`}>
+            <AccordionItem key={set} title={`Set ${set}`} classNames={{ content: 'grid grid-cols-9'}}>
               {units && units[set].map((unit) => (
                 <UnitCard key={`${unit.name}-${unit.set}`} unit={unit} />
               ))}
