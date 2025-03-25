@@ -36,7 +36,7 @@ export default function Units() {
       <Accordion variant='splitted' selectionMode='multiple' isCompact={false}>
         {setArray.map((set) => (
           (parseFloat(set) === selectedSet || selectedSet === 0) && parseFloat(set) > 0 ? (
-            <AccordionItem key={set} title={`Set ${set}`} classNames={{ content: 'grid grid-cols-9'}}>
+            <AccordionItem key={set} title={`Set ${set}`} classNames={{ content: 'grid grid-cols-4 items-center'}}>
               {units && units[set].map((unit) => (
                 <UnitCard key={`${unit.name}-${unit.set}`} unit={unit} />
               ))}
